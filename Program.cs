@@ -1,4 +1,9 @@
-internal class Program
+global using dotnet_rpg.Models;
+global using dotnet_rpg.Services.CharacterService;
+global using AutoMapper;
+global using dotnet_rpg.Dtos.Character;
+
+public class Program
 {
     private static void Main(string[] args)
     {
@@ -10,6 +15,8 @@ internal class Program
         builder.Services.AddControllers(); // Adds the ability to handle requests and return responses
         builder.Services.AddEndpointsApiExplorer(); // Adds a tool to help explore the API
         builder.Services.AddSwaggerGen(); // Adds a tool to generate API documentation
+        builder.Services.AddAutoMapper(typeof(Program).Assembly);
+        builder.Services.AddScoped<ICharacterService, CharacterService>();
 
         // Build the application
         var app = builder.Build();
