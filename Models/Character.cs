@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace dotnet_rpg.Models
 {
     public class Character
@@ -20,5 +15,6 @@ namespace dotnet_rpg.Models
         public int Defense { get; set; } = 10;
 
         public RpgClass Class { get; set; } = RpgClass.Knight;
+        public User? User { get; set; }
     }
 }
