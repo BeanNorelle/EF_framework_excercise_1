@@ -8,6 +8,15 @@ namespace dotnet_rpg.Models
         Knight = 1,
         Mage = 2,
         Cleric = 3,
-        Ranger = 4
+        Ranger = 4,
+        Support = 5,
+        Scout = 6,
+        Archer = 7,
+        Warrior = 8,
+        Paladin = 9,
+        Vanguard = 10,
+
+        Ringbearer = 11
+
     }
 }

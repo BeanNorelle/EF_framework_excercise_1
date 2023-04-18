@@ -1,4 +1,5 @@
 using dotnet_rpg.Dtos.Apparel;
+using dotnet_rpg.Dtos.Fight;
 using dotnet_rpg.Dtos.Skill;
 using dotnet_rpg.Dtos.Weapon;
 
@@ -15,6 +16,7 @@ namespace dotnet_rpg
             CreateMap<Weapon, GetWeaponDto>();
             CreateMap<Skill, GetSkillDto>();
             CreateMap<Apparel, GetApparelDto>();
+            CreateMap<Character, HighScoreDto>();
         }
     }
 }

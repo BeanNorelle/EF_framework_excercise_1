@@ -105,6 +105,9 @@ namespace dotnet_rpg.Services.CharacterService
             try
             {
                 var character = await _context.Characters
+                        .Include(c => c.Apparel)
+                        .Include(c => c.Weapon)
+                        .Include(c => c.Skills)
                         .FirstOrDefaultAsync(c => c.Id == id && c.User!.Id == GetUserId());
                 if (character is null) throw new Exception($"Character with Id '{id}' ");
 
@@ -146,7 +149,7 @@ namespace dotnet_rpg.Services.CharacterService
                 var skill = await _context.Skills
                             .FirstOrDefaultAsync(s => s.Id == newCharacterSkill.SkillId);
 
-                if (character is null)
+                if (skill is null)
                 {
                     response.Success = false;
                     response.Message = "Skill not found";
@@ -154,6 +157,7 @@ namespace dotnet_rpg.Services.CharacterService
                 }
 
                 character.Skills!.Add(skill);
+
                 await _context.SaveChangesAsync();
                 response.Data = _mapper.Map<GetCharacterDto>(character);
             }

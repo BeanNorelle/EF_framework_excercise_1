@@ -6,11 +6,12 @@ global using AutoMapper;
 global using dotnet_rpg.Dtos.Character;
 global using Microsoft.EntityFrameworkCore;
 global using dotnet_rpg.Data;
-
+global using dotnet_rpg.Services.FightService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Filters;
 using Microsoft.OpenApi.Models;
+
 
 
 // Create a new application builder
@@ -55,6 +56,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IWeaponService, WeaponService>();
 builder.Services.AddScoped<IApparelService, ApparelService>();
+builder.Services.AddScoped<IFightService, FightService>();
 // Build the application
 var app = builder.Build();
 
