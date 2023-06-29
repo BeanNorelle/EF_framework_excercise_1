@@ -13,7 +13,6 @@ namespace dotnet_rpg.Services.CharacterService
 
         public string Message { get; set; } = string.Empty;
 
-
     }
 }
 
